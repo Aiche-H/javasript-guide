@@ -89,7 +89,7 @@
 * **[Scope](#scope)**
 * **[Function Key Points](#function-key-points)**
 
-**JavaScript **Selectors**
+**JavaScript Selectors**
 
 * **[Basic selectors](#basic-selectors)**
 * **[CSS selectors](#css-selectors)**
