@@ -1030,7 +1030,6 @@ JavaScript also supports CSS selectors for more flexible and powerful element se
 * **Class selectors:** Select elements based on their class attribute (e.g., `.description`).
 * **ID selectors:** Select elements based on their unique `id` attribute (e.g., `#main-heading`).
 * **Attribute selectors:** Select elements based on their attributes (e.g., `[type="text"]`, `[href^="http://"]`).
-* **Pseudo-classes:** Select elements based on their state or position (e.g., `:hover`, `:active`, `:first-child`).
 * **Combinators:** Combine selectors to create more complex expressions (e.g., `p.description`, `div > p`).
 
 **Example:**
