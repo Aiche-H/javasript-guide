@@ -1185,7 +1185,7 @@ do {
 The `for...of` loop is used to iterate over iterable objects, such as arrays and strings.
 
 ```javascript
-for (let element of iterable) {
+for (const element of iterable) {
   // Code to be executed
 }
 ```
@@ -1193,8 +1193,8 @@ for (let element of iterable) {
 Example:
 
 ```javascript
-let fruits = ["apple", "banana", "orange"];
-for (let fruit of fruits) {
+const fruits = ["apple", "banana", "orange"];
+for (const fruit of fruits) {
   console.log(fruit);
 }
 ```
@@ -1204,7 +1204,7 @@ for (let fruit of fruits) {
 The `for...in` loop is used to iterate over the properties of an object.
 
 ```javascript
-for (let property in object) {
+for (const property in object) {
   // Code to be executed
 }
 ```
@@ -1212,13 +1212,13 @@ for (let property in object) {
 Example:
 
 ```javascript
-let person = {
+const person = {
   name: "Alice",
   age: 30,
   city: "New York"
 };
 
-for (let property in person) {
+for (const property in person) {
   console.log(property + ": " + person[property]);
 }
 ```
