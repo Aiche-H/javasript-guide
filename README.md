@@ -177,6 +177,15 @@
 * **[Assertions](#assertions)**
 * **[Other Methods](#other-methods)**
 
+**Error handling**
+
+* **[Common error types](#common-error-types)**
+* **[Basic error handling with try catch](#basic-error-handling-with-try-catch)**
+* **[Custom error object](#custom-error-objects)**
+* **[Error propagation](#error-propagation)**
+* **[Asynchronous Error Handling](#asynchronous-error-handling)**
+* **[Best practices](#best-practices)**
+
 ## A Markdown Guide to JavaScript Values
 
 JavaScript has two primary data types: **primitive** and **object**. Primitive values are immutable, meaning their values cannot be changed once created. Object values are mutable and can be modified after creation.
@@ -1830,3 +1839,103 @@ console.assert(2 + 2 === 4, "Math is broken!");
 * **`console.profile()` and `console.profileEnd()`:** Starts and stops profiling a block of code.
 
 By effectively using these console methods, you can debug your JavaScript code more efficiently and gain valuable insights into its behavior.
+
+## A Markdown Guide to Error Handling in JavaScript
+
+**Error handling** is a crucial aspect of robust JavaScript development. It involves anticipating potential errors, preventing them from crashing your application, and providing informative feedback to users.
+
+### Common Error Types
+
+* **Syntax errors:** Mistakes in the JavaScript syntax, such as typos or missing semicolons.
+* **Runtime errors:** Errors that occur during the execution of your code, such as trying to access a non-existent property or dividing by zero.
+* **Logical errors:** Errors that occur due to incorrect logic or algorithms in your code.
+
+### Basic Error Handling with try catch
+
+The `try...catch` block is the fundamental mechanism for handling errors in JavaScript.
+
+```javascript
+try {
+  // Code that might throw an error
+  let result = 10 / 0;
+  console.log(result);
+} catch (error) {
+  console.error("An error occurred:", error);
+}
+```
+
+### Custom Error Objects
+
+You can create custom error objects to provide more specific information about the error.
+
+```javascript
+function MyCustomError(message) {
+  this.message = message;
+  this.name = "MyCustomError";
+}
+
+try {
+  // Code that might throw a custom error
+  throw new MyCustomError("This is a custom error");
+} catch (error) {
+  console.error("Error message:", error.message);
+}
+```
+
+### Error Propagation
+
+Errors can be propagated through the call stack using `throw`.
+
+```javascript
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Division by zero");
+  }
+  return a / b;
+}
+
+function calculate(x, y) {
+  try {
+    let result = divide(x, y);
+    console.log("Result:", result);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+calculate(10, 0);
+```
+
+### Asynchronous Error Handling
+
+For asynchronous operations, use promises or async/await for proper error handling.
+
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data fetched successfully");
+    }, 1000);
+  });
+}
+
+async function main() {
+  try {
+    let data = await fetchData();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+main();
+```
+
+### Best Practices
+
+* **Be specific:** Use meaningful error messages to help diagnose problems.
+* **Handle errors gracefully:** Provide informative feedback to the user and prevent the application from crashing.
+* **Test error handling:** Write unit tests to ensure your error handling code works as expected.
+* **Use debugging tools:** Utilize browser developer tools or debuggers to inspect errors and stack traces.
+
+By following these guidelines, you can write more robust and reliable JavaScript applications.
